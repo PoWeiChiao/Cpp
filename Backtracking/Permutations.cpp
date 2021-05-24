@@ -6,7 +6,7 @@ using namespace std;
 
 class Solution {
 public:
-    void DFS(vector<vector<int>>& res, vector<int> curr, vector<int> isVisited, vector<int>& nums) {
+    void Backtracking(vector<vector<int>>& res, vector<int> curr, vector<int> isVisited, vector<int>& nums) {
         if (curr.size() == nums.size()) {
             res.push_back(curr);
             return;
