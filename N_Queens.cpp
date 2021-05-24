@@ -1,3 +1,4 @@
+#include <bitset>
 #include <string>
 #include <vector>
 
@@ -9,8 +10,12 @@ using namespace std;
 
 class Solution {
 public:
-    void helper(vector<vector<string>>& res, vector<string> curr, int row, vector<int> cols, vector<int> diag, vector<int> revs, int n) {
-        if (curr.size() == n) {
+    bitset<20> cols;
+    bitset<20> diag;
+    bitset<20> revs;
+
+    void helper(vector<vector<string>>& res, vector<string> curr, int row, int n) {
+        if (row == n) {
             res.push_back(curr);
             return;
         }
@@ -22,7 +27,7 @@ public:
                 revs[row - i + n - 1] = 1;
                 temp[i] = 'Q';
                 curr.push_back(temp);
-                helper(res, curr, row + 1, cols, diag, revs, n);
+                helper(res, curr, row + 1, n);
                 cols[i] = 0;
                 diag[row + i] = 0;
                 revs[row - i + n - 1] = 0;
@@ -41,10 +46,7 @@ public:
         else if (n == 2 || n == 3) return res;
         vector<string> curr;
         int row = 0;
-        vector<int> cols(n, 0);
-        vector<int> diag(n * 2 - 1, 0); 
-        vector<int> revs(n * 2 - 1, 0);
-        helper(res, curr, row, cols, diag, revs, n);
+        helper(res, curr, row, n);
         return res;
     }
 };
