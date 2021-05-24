@@ -19,10 +19,10 @@ public:
             if (ms.find(s[j]) == ms.end()) {
                 ms.insert(s[j]);
                 j++;
-                mx = max(mx, ms.size());
+                mx = max(mx, (int)ms.size());
             }
             else {
-                ms.erase(s[j]);
+                ms.erase(s[i]);
                 i++;
             }
         }
