@@ -8,7 +8,7 @@ int solution(vector<int> &A) {
     dp[0] = A.front();
     for (int i = 1; i < (int)A.size(); ++i) {
         dp[i] = A[i] + dp[i - 1] > A[i] ? A[i] + dp[i - 1] : A[i];
-        if (dp[i] > ans) ans = dp[i];
+        ans = dp[i] > ans ? dp[i] : ans;
     }
     return ans;
 }
