@@ -43,7 +43,7 @@ void Merge(vector<int>& vec, int front, int mid, int end) {
             rightIdx++;
         }
     }
-}
+};
 
 public:
     Sort() {};
