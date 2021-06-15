@@ -7,7 +7,11 @@ class HealthReport {
 
 map<int, int> current;
 public:
-    HealthReport();
+    HealthReport(vector<pair<int, int>> vec) {
+        for (auto &it : vec) {
+            current[it.first] = it.second;
+        }
+    };
     ~HealthReport();
     vector<pair<int, int>> update(vector<pair<int, int>> record) {
         unordered_map<int, int> cur;
